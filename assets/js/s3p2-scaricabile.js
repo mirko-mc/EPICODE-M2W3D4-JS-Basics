@@ -15,10 +15,40 @@
 
 //ESERCIZI IN JS
 // ESERCIZIO 7: Scrivi una funzione per cambiare il contenuto del tag h1 in qualcos'altro
+function handleH1() {
+    const H1 = document.querySelector("h1");
+    const SWITCHH1 = ["K SMARTPHONE", "QUI VENDIAMO SMARTPHONE PEZZOTTI"];
+    H1.textContent === SWITCHH1[0] ? H1.textContent = SWITCHH1[1] : H1.textContent = SWITCHH1[0];
+}
 // ESERCIZIO 8: Scrivi una funzione per cambiare il colore di background della pagina
-// ESERCIZIO 9: Scrivi una funzione per cambiare l'indirizzo presente nel futuro in un altro, fittizio
+function handleBackground() {
+    document.querySelector("main").style.backgroundColor = "#" + Math.round(Math.random() * 999999);
+}
+// ESERCIZIO 9: Scrivi una funzione per cambiare l'indirizzo presente nel footer in un altro, fittizio
+function handleAddress() {
+    const SWITCHADDRESS = ["K Smartphone s.r.l. - Viale dei Dispositivi Guasti, 0 - Nokia 03310 - Snake Forever SF", "K Smartphone s.r.l. - Viale delle Solide Falsità, 0 - Galaxy 21856 - Shred Town ST"];
+    const ADDRESS = document.querySelector("address");
+    ADDRESS.textContent === SWITCHADDRESS[0] ? ADDRESS.textContent = SWITCHADDRESS[1] : ADDRESS.textContent = SWITCHADDRESS[0];
+}
 // ESERCIZIO 10: Scrivi una funzione per aggiungere una classe CSS ad ogni link Amazon della tabella
+function handleAddCssClass() {
+    const A = document.getElementsByTagName("a");
+    for (const LINK of A) {
+        !document.getElementsByClassName("linkAmazon") === false ? LINK.classList.toggle("linkAmazon") : LINK.classList.toggle("linkAmazon");
+    }
+}
 // ESERCIZIO 11: Scrivi una funzione per aggiungere/togliere una classe CSS a tutte le immagini della tabella; questa classe deve modificare la visibilità/invisibilità dell'immagine
+function handleHideImage() {
+    const IMGS = document.getElementsByTagName("img")
+    for (const IMG of IMGS) {
+        // IMG.style.display === "none" ? IMG.style.display = "block" : IMG.style.display = "none";
+        !document.getElementsByClassName("imgVisibility") === false ? IMG.classList.toggle("imgVisibility") : IMG.classList.toggle("imgVisibility");
+    }
+}
 // ESERCIZIO 12: Scrivi una funzione per cambiare il colore del prezzo di ogni prodotto in uno differente, ogni volta che viene invocata
-
-
+function handlePriceColor() {
+    const PRICES = document.getElementsByClassName("price");
+    for (const PRICE of PRICES) {
+        PRICE.style.color = "#" + Math.round(Math.random() * 999999);
+    }
+}
