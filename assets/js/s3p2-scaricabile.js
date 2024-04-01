@@ -17,7 +17,7 @@
 // ESERCIZIO 7: Scrivi una funzione per cambiare il contenuto del tag h1 in qualcos'altro
 function handleH1() {
     const H1 = document.querySelector("h1");
-    const SWITCHH1 = ["K SMARTPHONE", "QUI VENDIAMO SMARTPHONE PEZZOTTI"];
+    const SWITCHH1 = ["K SMARTPHONE - i 5 smartphone più venduti", "QUI VENDIAMO SMARTPHONE PEZZOTTI"];
     H1.textContent === SWITCHH1[0] ? H1.textContent = SWITCHH1[1] : H1.textContent = SWITCHH1[0];
 }
 // ESERCIZIO 8: Scrivi una funzione per cambiare il colore di background della pagina
@@ -41,7 +41,6 @@ function handleAddCssClass() {
 function handleHideImage() {
     const IMGS = document.getElementsByTagName("img")
     for (const IMG of IMGS) {
-        // IMG.style.display === "none" ? IMG.style.display = "block" : IMG.style.display = "none";
         !document.getElementsByClassName("imgVisibility") === false ? IMG.classList.toggle("imgVisibility") : IMG.classList.toggle("imgVisibility");
     }
 }
@@ -53,7 +52,7 @@ function handlePriceColor() {
     }
 }
 
-// funzione saveReview() che mostra la recenisone della textarea nella pagina web review.html
+// funzione saveReview() che mostra la recensione della textarea nella pagina web review.html
 function saveReview() {
     const H4 = document.getElementsByTagName("h4");
     const TEXTAREA = document.getElementsByTagName("textarea");
@@ -71,6 +70,8 @@ function saveReview() {
     }
 }
 function getReview() {
-    document.write(`<h1>Grazie per la tua recensione dello smartphone :</h1><br>${localStorage.getItem("h4")}<br><p>La recensione che hai inviato è :<br>${localStorage.getItem("textarea")}</p>`);
+    const p = document.getElementsByTagName("p");
+    p[0].textContent += localStorage.getItem("h4");
+    p[1].textContent += localStorage.getItem("textarea");
     localStorage.clear();
 }
