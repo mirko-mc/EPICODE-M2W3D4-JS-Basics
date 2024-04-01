@@ -52,3 +52,25 @@ function handlePriceColor() {
         PRICE.style.color = "#" + Math.round(Math.random() * 999999);
     }
 }
+
+// funzione saveReview() che mostra la recenisone della textarea nella pagina web review.html
+function saveReview() {
+    const H4 = document.getElementsByTagName("h4");
+    const TEXTAREA = document.getElementsByTagName("textarea");
+    let empty = 0;
+    for (let i = 0; i < TEXTAREA.length; i++) {
+        if (TEXTAREA[i].value !== "") {
+            localStorage.setItem("h4", H4[i].textContent);
+            localStorage.setItem("textarea", TEXTAREA[i].value);
+            open("review.html");
+            break;
+        } else {
+            empty++;
+            if (empty === TEXTAREA.length) alert("Non hai inserito nessuna recensione");
+        }
+    }
+}
+function getReview() {
+    document.write(`<h1>Grazie per la tua recensione dello smartphone :</h1><br>${localStorage.getItem("h4")}<br><p>La recensione che hai inviato è :<br>${localStorage.getItem("textarea")}</p>`);
+    localStorage.clear();
+}
